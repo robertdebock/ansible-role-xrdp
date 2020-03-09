@@ -35,7 +35,7 @@ install:
   - pip install tox
 
 script:
-  - tox --parallel all
+  - tox
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
