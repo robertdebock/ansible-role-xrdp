@@ -15,6 +15,8 @@
     option: "{{ item.option }}"
     value: "{{ item.value }}"
   loop: "{{ xrdp_configuration }}"
+  loop_control:
+    label: "{{ item.option }}"
   notify:
     - restart xrdp
 
