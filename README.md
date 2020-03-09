@@ -5,7 +5,7 @@ Install and configure xrdp on your system.
 
 |Travis|GitHub|Quality|Downloads|
 |------|------|-------|---------|
-|[![travis](https://travis-ci.org/robertdebock/ansible-role-xrdp.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-xrdp)|[![github](https://github.com/robertdebock/ansible-role-xrdp/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-xrdp/actions)|![quality](https://img.shields.io/ansible/quality/)|![downloads](https://img.shields.io/ansible/role/d/)|
+|[![travis](https://travis-ci.org/robertdebock/ansible-role-xrdp.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-xrdp)|[![github](https://github.com/robertdebock/ansible-role-xrdp/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-xrdp/actions)|![quality](https://img.shields.io/ansible/quality/47125)|![downloads](https://img.shields.io/ansible/role/d/47125)|
 
 Example Playbook
 ----------------
@@ -32,6 +32,7 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
 
   roles:
     - role: robertdebock.bootstrap
+    - role: robertdebock.epel
 ```
 
 For verification `molecule/resources/verify.yml` run after the role has been applied.
@@ -45,6 +46,11 @@ For verification `molecule/resources/verify.yml` run after the role has been app
   tasks:
     - name: check if connection still works
       ping:
+
+    - name: check if port 3389 is open
+      wait_for:
+        port: 3389
+        delay: 10
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -73,6 +79,7 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
+- robertdebock.epel
 
 ```
 
