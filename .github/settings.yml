@@ -1,0 +1,7 @@
+---
+#
+# Ansible managed
+#
+repository:
+  description: Install and configure xrdp on your system.
+  homepage: https://robertdebock.nl/

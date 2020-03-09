@@ -1,0 +1,25 @@
+---
+# tasks file for xrdp
+- name: install software
+  package:
+    name: "{{ xrdp_packages }}"
+    state: present
+  register: xrdp_install_software
+  until: xrdp_install_software is succeeded
+  retries: 3
+
+- name: configure xrdp
+  ini_file:
+    path: /etc/xrdp/xrdp.ini
+    section: "{{ item.section }}"
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  loop: "{{ xrdp_configuration }}"
+  notify:
+    - restart xrdp
+
+- name: start and enable software
+  service:
+    name: "{{ xrdp_service }}"
+    state: started
+    enabled: yes
