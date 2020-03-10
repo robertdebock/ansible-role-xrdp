@@ -32,6 +32,7 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
 
   roles:
     - role: robertdebock.bootstrap
+    - role: robertdebock.core_dependencies
     - role: robertdebock.epel
 ```
 
@@ -44,13 +45,14 @@ For verification `molecule/resources/verify.yml` run after the role has been app
   gather_facts: yes
 
   tasks:
-    - name: check if connection still works
-      ping:
-
     - name: check if port 3389 is open
       wait_for:
         port: 3389
         delay: 10
+
+    - name: show testing instruction
+      debug:
+        msg: "Please connect to: {{ ansible_default_ipv4.address }}:3389"
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -79,6 +81,7 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
+- robertdebock.core_dependencies
 - robertdebock.epel
 
 ```
