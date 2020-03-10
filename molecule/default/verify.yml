@@ -5,10 +5,11 @@
   gather_facts: yes
 
   tasks:
-    - name: check if connection still works
-      ping:
-
     - name: check if port 3389 is open
       wait_for:
         port: 3389
         delay: 10
+
+    - name: show testing instruction
+      debug:
+        msg: "Please connect to: {{ ansible_default_ipv4.address }}:3389"
