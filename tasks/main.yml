@@ -21,7 +21,18 @@
     - restart xrdp
 
 - name: start and enable software
-  service:
-    name: "{{ xrdp_service }}"
-    state: started
-    enabled: yes
+  block:
+    - name: use service
+      service:
+        name: "{{ xrdp_service }}"
+        state: started
+        enabled: yes
+  rescue:
+    - name: collect journalctl
+      command: journalctl -xe
+      register: xrdp_collect_journalctl
+    - name: show journalctl
+      debug: "{{ xrdp_collect_journalctl }}"
+    - name: fail wiht a message
+      fail:
+        msg: "Failing, because I was rescued."
