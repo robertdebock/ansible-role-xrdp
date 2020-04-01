@@ -1,6 +1,20 @@
 ---
 # handlers file for xrdp
 - name: restart xrdp
-  service:
-    name: "{{ xrdp_service }}"
-    state: restarted
+  block:
+    - name: using service
+      service:
+        name: "{{ xrdp_service }}"
+        state: restarted
+  rescue:
+    - name: collect information
+      command: "{{ item }}"
+      register: xrdp_collect_information
+      loop:
+        - journalxtl -xe
+        - systemctl status "{{ xrdp_service }}"
+   - name: show information
+     debug:
+       var: "{{ item }}"
+     loop:
+       - xrdp_collect_information.results
