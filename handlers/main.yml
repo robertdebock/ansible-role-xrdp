@@ -1,8 +1,8 @@
 ---
 # handlers file for xrdp
-- name: restart xrdp
+- name: debug restart xrdp
   block:
-    - name: using service
+    - name: restart xrdp
       service:
         name: "{{ xrdp_service }}"
         state: restarted
