@@ -12,9 +12,8 @@
       register: xrdp_collect_information
       loop:
         - journalxtl -xe
-        - systemctl status "{{ xrdp_service }}"
-   - name: show information
-     debug:
-       var: "{{ item }}"
-     loop:
-       - xrdp_collect_information.results
+        - systemctl status {{ xrdp_service }}
+    - name: show information
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ xrdp_collect_information.results }}"
