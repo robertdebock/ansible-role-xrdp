@@ -25,21 +25,3 @@
     name: "{{ xrdp_service }}"
     state: started
     enabled: yes
-
-- name: debug restart xrdp
-  block:
-    - name: restart xrdp
-      service:
-        name: "{{ xrdp_service }}"
-        state: restarted
-  rescue:
-    - name: collect information
-      command: "{{ item }}"
-      register: xrdp_collect_information
-      loop:
-        - journalxtl -xe
-        - systemctl status {{ xrdp_service }}
-    - name: show information
-      debug:
-        msg: "{{ item }}"
-      loop: "{{ xrdp_collect_information.results }}"
