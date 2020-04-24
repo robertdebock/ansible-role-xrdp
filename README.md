@@ -100,7 +100,6 @@ This role has been tested on these [container images](https://hub.docker.com/):
 |el|7, 8|
 |fedora|all|
 |opensuse|all|
-|ubuntu|bionic|
 
 The minimum version of Ansible required is 2.7 but tests have been done to:
 
@@ -108,6 +107,13 @@ The minimum version of Ansible required is 2.7 but tests have been done to:
 - The current version.
 - The development version.
 
+## Exceptions
+
+Some variarations of the build matrix do not work. These are the variations and reasons why the build won't work:
+
+| variation                 | reason                 |
+|---------------------------|------------------------|
+| ubuntu:latest | Unable to start service xrdp: A dependency job for xrdp.service failed. See 'journalctl -xe' for details.  |
 
 
 ## Testing
