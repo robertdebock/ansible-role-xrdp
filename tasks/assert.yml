@@ -15,4 +15,5 @@
       - item.section | length > 0
       - item.value is defined
       - item.value | length > 0
+    quiet: yes
   loop: "{{ xrdp_configuration }}"
