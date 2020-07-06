@@ -61,6 +61,7 @@ These variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for xrdp
+
 xrdp_configuration:
   - option: encrypt_level
     section: Globals
