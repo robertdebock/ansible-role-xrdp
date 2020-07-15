@@ -17,3 +17,5 @@
       - item.value | length > 0
     quiet: yes
   loop: "{{ xrdp_configuration }}"
+  loop_control:
+    label: "{{ item.option }}"
