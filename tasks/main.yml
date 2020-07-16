@@ -7,9 +7,6 @@
   package:
     name: "{{ xrdp_packages }}"
     state: present
-  register: xrdp_install_software
-  until: xrdp_install_software is succeeded
-  retries: 3
 
 - name: configure xrdp
   ini_file:
