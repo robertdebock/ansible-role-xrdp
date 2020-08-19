@@ -5,6 +5,7 @@
       - xrdp_configuration is defined
       - xrdp_configuration | length > 0
       - xrdp_configuration is iterable
+    quiet: yes
 
 - name: test if item in xrdp_configuration is set correctly
   assert:
