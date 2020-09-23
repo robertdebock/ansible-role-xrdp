@@ -21,8 +21,11 @@
   notify:
     - restart xrdp
 
-- name: start and enable software
+- name: start and enable xrdp
   service:
     name: "{{ xrdp_service }}"
     state: started
     enabled: yes
+  register: xrdp_start_and_enable_xrdp
+  unti: xrdp_start_and_enable_xrdp is succeeded
+  retries: 3
