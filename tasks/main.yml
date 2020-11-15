@@ -28,5 +28,6 @@
     state: started
     enabled: yes
   register: xrdp_start_and_enable_xrdp
-  until: xrdp_start_and_enable_xrdp is succeeded
+  until:
+    - xrdp_start_and_enable_xrdp is succeeded
   retries: 3

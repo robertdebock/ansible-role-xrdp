@@ -20,7 +20,7 @@ This example is taken from `molecule/resources/converge.yml` and is tested on ea
     - role: robertdebock.xrdp
 ```
 
-The machine may need to be prepared using `molecule/resources/prepare.yml`:
+The machine needs to be prepared in CI this is done using `molecule/resources/prepare.yml`:
 ```yaml
 ---
 - name: prepare
@@ -32,25 +32,6 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
     - role: robertdebock.bootstrap
     - role: robertdebock.core_dependencies
     - role: robertdebock.epel
-```
-
-For verification `molecule/resources/verify.yml` runs after the role has been applied.
-```yaml
----
-- name: Verify
-  hosts: all
-  become: yes
-  gather_facts: yes
-
-  tasks:
-    - name: check if port 3389 is open
-      wait_for:
-        port: 3389
-        delay: 10
-
-    - name: show testing instruction
-      debug:
-        msg: "Please connect to: {{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}:3389"
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -73,15 +54,13 @@ xrdp_configuration:
 - Access to a repository containing packages, likely on the internet.
 - A recent version of Ansible. (Tests run on the current, previous and next release of Ansible.)
 
-The following roles can be installed to ensure all requirements are met, using `ansible-galaxy install -r requirements.yml`:
+## [Status of requirements](#status-of-requirements)
 
-```yaml
----
-- robertdebock.bootstrap
-- robertdebock.core_dependencies
-- robertdebock.epel
-
-```
+| Requirement | Travis | GitHub |
+|-------------|--------|--------|
+| [robertdebock.bootstrap](https://galaxy.ansible.com/robertdebock/bootstrap) | [![Build Status Travis](https://travis-ci.com/robertdebock/ansible-role-bootstrap.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-bootstrap) | [![Build Status GitHub](https://github.com/robertdebock/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-bootstrap/actions) |
+| [robertdebock.core_dependencies](https://galaxy.ansible.com/robertdebock/core_dependencies) | [![Build Status Travis](https://travis-ci.com/robertdebock/ansible-role-core_dependencies.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-core_dependencies) | [![Build Status GitHub](https://github.com/robertdebock/ansible-role-core_dependencies/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-core_dependencies/actions) |
+| [robertdebock.epel](https://galaxy.ansible.com/robertdebock/epel) | [![Build Status Travis](https://travis-ci.com/robertdebock/ansible-role-epel.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-epel) | [![Build Status GitHub](https://github.com/robertdebock/ansible-role-epel/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-epel/actions) |
 
 ## [Context](#context)
 
