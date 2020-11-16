@@ -3,7 +3,6 @@
   assert:
     that:
       - xrdp_configuration is defined
-      - xrdp_configuration | length > 0
       - xrdp_configuration is iterable
     quiet: yes
 
@@ -11,11 +10,8 @@
   assert:
     that:
       - item.option is defined
-      - item.option | length > 0
       - item.section is defined
-      - item.section | length > 0
       - item.value is defined
-      - item.value | length > 0
     quiet: yes
   loop: "{{ xrdp_configuration }}"
   loop_control:
