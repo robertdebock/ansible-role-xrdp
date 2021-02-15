@@ -1,14 +1,14 @@
 ---
 
 - name: test if xrdp_configuration is set correctly
-  assert:
+  ansible.builtin.assert:
     that:
       - xrdp_configuration is defined
       - xrdp_configuration is iterable
     quiet: yes
 
 - name: test if item in xrdp_configuration is set correctly
-  assert:
+  ansible.builtin.assert:
     that:
       - item.option is defined
       - item.option is string
