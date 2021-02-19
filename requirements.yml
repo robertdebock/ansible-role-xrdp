@@ -4,5 +4,4 @@ roles:
   - name: robertdebock.core_dependencies
   - name: robertdebock.epel
 collections:
-  - name: ansible.builtin
   - name: community.general
