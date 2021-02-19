@@ -7,12 +7,12 @@
   delegate_to: localhost
 
 - name: install software
-  package:
+  ansible.builtin.package:
     name: "{{ xrdp_packages }}"
     state: present
 
 - name: configure xrdp
-  ini_file:
+  community.general.ini_file:
     path: /etc/xrdp/xrdp.ini
     section: "{{ item.section }}"
     option: "{{ item.option }}"
@@ -25,7 +25,7 @@
     - restart xrdp
 
 - name: start and enable xrdp
-  service:
+  ansible.builtin.service:
     name: "{{ xrdp_service }}"
     state: started
     enabled: yes
