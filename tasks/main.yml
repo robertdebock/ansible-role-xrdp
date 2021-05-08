@@ -24,6 +24,14 @@
   notify:
     - restart xrdp
 
+- name: configure xrdp user
+  user:
+    name: xrdp
+    group: xrdp
+    groups: "{{ xrdp_groups | join(', ') }}"
+  notify:
+    - restart xrdp
+
 - name: start and enable xrdp
   ansible.builtin.service:
     name: "{{ xrdp_service }}"

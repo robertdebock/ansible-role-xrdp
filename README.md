@@ -47,6 +47,9 @@ xrdp_configuration:
   - option: encrypt_level
     section: Globals
     value: high
+
+xrdp_groups:
+  - xrdp
 ```
 
 ## [Requirements](#requirements)
