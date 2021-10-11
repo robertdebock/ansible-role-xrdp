@@ -12,4 +12,4 @@
 
     - name: show testing instruction
       ansible.builtin.debug:
-        msg: "Please connect to: {{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}:3389"
+        msg: "Please connect to: {{ ansible_default_ipv4.address | default(ansible_all_ipv4_addresses[0]) }}:3389"
