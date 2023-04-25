@@ -47,7 +47,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 # defaults file for xrdp
 
 xrdp_configuration:
-  - option: encrypt_level
+  - option: crypt_level
     section: Globals
     value: high
 ```
