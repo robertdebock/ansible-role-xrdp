@@ -5,11 +5,11 @@
   gather_facts: yes
 
   tasks:
-    - name: check if port 3389 is open
+    - name: Check if port 3389 is open
       ansible.builtin.wait_for:
         port: 3389
         delay: 10
 
-    - name: show testing instruction
+    - name: Show testing instruction
       ansible.builtin.debug:
         msg: "Please connect to: {{ ansible_default_ipv4.address | default(ansible_all_ipv4_addresses[0]) }}:3389"

@@ -25,7 +25,7 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
 
 ```yaml
 ---
-- name: Prepare
+- name: prepare
   hosts: all
   become: yes
   gather_facts: no
@@ -47,7 +47,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 # defaults file for xrdp
 
 xrdp_configuration:
-  - option: crypt_level
+  - option: encrypt_level
     section: Globals
     value: high
 ```
