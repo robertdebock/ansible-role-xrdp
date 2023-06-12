@@ -5,4 +5,4 @@
 repository:
   description: Install and configure xrdp on your system.
   homepage: https://robertdebock.nl/
-  topics: xrdp, ansible, molecule, tox, playbook
+  topics: xrdp, networking, ansible, molecule, tox, playbook
