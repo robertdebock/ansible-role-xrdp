@@ -2,9 +2,9 @@
 
 Install and configure xrdp on your system.
 
-|GitHub|GitLab|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![github](https://github.com/robertdebock/ansible-role-xrdp/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-xrdp/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-xrdp/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-xrdp)|[![quality](https://img.shields.io/ansible/quality/47125)](https://galaxy.ansible.com/robertdebock/xrdp)|[![downloads](https://img.shields.io/ansible/role/d/47125)](https://galaxy.ansible.com/robertdebock/xrdp)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-xrdp.svg)](https://github.com/robertdebock/ansible-role-xrdp/releases/)|
+|GitHub|GitLab|Downloads|Version|
+|------|------|---------|-------|
+|[![github](https://github.com/robertdebock/ansible-role-xrdp/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-xrdp/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-xrdp/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-xrdp)|[![downloads](https://img.shields.io/ansible/role/d/24631)](https://galaxy.ansible.com/robertdebock/xrdp)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-xrdp.svg)](https://github.com/robertdebock/ansible-role-xrdp/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -93,7 +93,7 @@ The minimum version of Ansible required is 2.12, tests have been done to:
 - The current version.
 - The development version.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-xrdp/issues)
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-xrdp/issues).
 
 ## [License](#license)
 
