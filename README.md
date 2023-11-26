@@ -1,4 +1,4 @@
-# Ansible role [xrdp](#xrdp)
+# [Ansible role xrdp](#xrdp)
 
 Install and configure xrdp on your system.
 
