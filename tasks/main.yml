@@ -27,7 +27,7 @@
 
 - name: Place 45-allow-colord
   when:
-    - ansible_distribution == "Ubuntu"
+    - ansible_facts['distribution'] == "Ubuntu"
   block:
     - name: Place 45-allow-colord.pkla
       ansible.builtin.copy:
