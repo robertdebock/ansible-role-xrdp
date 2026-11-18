@@ -29,6 +29,14 @@
   when:
     - ansible_facts['distribution'] == "Ubuntu"
   block:
+    - name: Create the polkit localauthority directory
+      ansible.builtin.file:
+        path: /etc/polkit-1/localauthority/50-local.d
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
     - name: Place 45-allow-colord.pkla
       ansible.builtin.copy:
         src: 45-allow-colord
